@@ -7,12 +7,18 @@ body {
 }
 
 a {
-  color: inherit;
+  color: rgb(0, 41, 128);
   text-decoration: none;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.container {
+   width: 1200px;
+   margin: 10px auto;
+   padding: 20px;
 }
 
 @media (prefers-color-scheme: dark) {
