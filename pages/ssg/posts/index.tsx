@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 type Post = {
   id: number;
   title: string;
-  author: string;
+  body: string;
 };
 
 type Props = {
@@ -25,7 +25,7 @@ const ListPost = ({ posts }: Props) => {
       {posts.map((post) => {
         return (
           <div key={post.id} onClick={() => handleClickPost(post.id)}>
-            {`${post.title} - ${post.author}`} <hr></hr>
+            {`${post.title} - ${post.body}`} <hr></hr>
           </div>
         );
       })}
@@ -34,7 +34,7 @@ const ListPost = ({ posts }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch("http://localhost:4000/posts");
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts = await response.json();
 
   return {

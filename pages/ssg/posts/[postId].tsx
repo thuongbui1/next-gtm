@@ -28,7 +28,7 @@ const Post = (props: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch(`http://localhost:4000/posts`);
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts`);
   const posts: Post[] = await response.json();
 
   const paths = posts.map((p) => {
@@ -45,7 +45,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { postId } = context.params as IParams;
-  const response = await fetch(`http://localhost:4000/posts/${postId}`);
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
   const post = await response.json();
 
   return {
